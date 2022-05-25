@@ -2,45 +2,44 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Run the following commands to setup the project:
 
-### `npm start`
+### npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This command will install all the required dependencies for the project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### npm start
 
-### `npm test`
+This command will start the development server on [port 3000](http://localhost:3000).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Development
 
-### `npm run build`
+### TypeScript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+TypeScript is used to simplify the development process, by letting us catch errors at compile time that would otherwise only be caught at runtime. Additionally, typing our data and component props makes the code more readable.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Styled Components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Styled Components is used for convenience of layout and styling by using a CSS-in-JS approach, and reducing boilerplate CSS.
 
-### `npm run eject`
+## Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Jest + React Testing Library
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Jest and React Testing Library are used for testing our components, the way they render, and the way the interactable elements behave.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Possible Improvements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Data persistance
 
-## Learn More
+The data for the columns and cards could be implemented using local storage, so that the data is not lost when the page is refreshed.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I decided against this approach, as a more realistic approach would be to implement a backend that would handle the persistence of the data.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Data processing on FE
+
+There's a lot of additional code related to data processing that's currently being done on the frontend, but would have backend implementations in a real world scenario.
+
+Specifically the functionalities regarding updating the cards which would be simplified with a backend implementation, where we could make our API calls to the backend and update the cards, and just refetch the updated data after.

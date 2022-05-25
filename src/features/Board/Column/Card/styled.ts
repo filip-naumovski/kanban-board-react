@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../../themes";
-import { Container, FlexContainer } from "../../styled";
+import { Container } from "../../styled";
 
 export const CloseButtonContainer = styled.div`
   width: 20px;

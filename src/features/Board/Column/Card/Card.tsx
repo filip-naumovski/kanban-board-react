@@ -38,7 +38,10 @@ const Card = ({ card, columnId }: { card: CardData; columnId: number }) => {
           onClick={() => moveCardToOtherColumn(card.id, columnId - 1)}>
           {"<"}
         </ArrowContainer>
-        <Container width="100%" padding="0px 10px">
+        <Container
+          style={{ wordBreak: "break-word" }}
+          width="100%"
+          padding="0px 10px">
           {card.text}
         </Container>
         <ArrowContainer

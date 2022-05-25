@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import styled from "styled-components";
 import { theme } from "../../../themes";
-import { Container, FlexContainer } from "../styled";
+import { FlexContainer } from "../styled";
 import { CardData, ColumnData } from "../types";
 import { PurpleButton } from "../styled";
 import { ColumnContainer, TransparentTextArea } from "./styled";
