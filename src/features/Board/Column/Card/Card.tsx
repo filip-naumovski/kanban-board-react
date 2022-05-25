@@ -21,6 +21,7 @@ const Card = ({ card, columnId }: { card: CardData; columnId: number }) => {
           </ArrowContainer>
         </FlexContainer>
         <CloseButtonContainer
+          title="Remove Card"
           onClick={(e) => {
             e.stopPropagation();
             removeCard(card.id, columnId);

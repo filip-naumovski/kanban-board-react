@@ -53,7 +53,9 @@ const Column = ({ column, cards }: ColumnProps) => {
       backgroundColor={theme.secondary[0]}
       style={{ borderRadius: "5px", border: "2px solid black" }}>
       <h1>{column.title}</h1>
-      <PurpleButton onClick={handleSetAdd}>＋</PurpleButton>
+      <PurpleButton onClick={handleSetAdd} title="Add Card">
+        ＋
+      </PurpleButton>
       <ColumnContainer
         flexDirection="column"
         justifyContent="flex-start"

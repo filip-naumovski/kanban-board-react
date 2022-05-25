@@ -1,8 +1,6 @@
 import "./App.css";
 import styled from "styled-components";
 import Board from "./features/Board/Board";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 const AppContainer = styled.div`
   background-color: #f5f5f5;
@@ -14,9 +12,7 @@ const AppContainer = styled.div`
 function App() {
   return (
     <AppContainer>
-      <DndProvider backend={HTML5Backend}>
-        <Board />
-      </DndProvider>
+      <Board />
     </AppContainer>
   );
 }

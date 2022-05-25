@@ -1,50 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { CardsContext } from "./BoardContext";
 import Column from "./Column/Column";
+import NewColumnInput from "./NewColumnInput/NewColumnInput";
 import { PurpleButton, TransparentInput } from "./styled";
 import { FlexContainer } from "./styled";
 import { CardData, ColumnData } from "./types";
 
 const Board = () => {
-  const [columns, setColumns] = useState<ColumnData[]>([
-    {
-      id: 1,
-      title: "To Do",
-    },
-  ]);
+  const [columns, setColumns] = useState<ColumnData[]>([]);
 
-  const [cards, setCards] = useState<CardData[]>([
-    {
-      id: 1,
-      text: "Card with some text.  This is a long text that should wrap.",
-      priority: 0,
-      columnId: 1,
-    },
-    {
-      id: 2,
-      text: "Card with other text.",
-      priority: 4,
-      columnId: 1,
-    },
-    {
-      id: 3,
-      text: "Example card with some text.",
-      priority: 1,
-      columnId: 1,
-    },
-    {
-      id: 4,
-      text: " Example card with other text. This text is longer than the other text.",
-      priority: 3,
-      columnId: 1,
-    },
-    {
-      id: 5,
-      text: "p2",
-      priority: 2,
-      columnId: 1,
-    },
-  ]);
+  const [cards, setCards] = useState<CardData[]>([]);
+
+  const [addingColumn, setAddingColumn] = useState(false);
+  const [columnTitle, setColumnTitle] = useState("");
 
   const getNextPriority = (columnId: number): number => {
     const columnCards = cards.filter((card) => card.columnId === columnId);
@@ -53,9 +21,6 @@ const Board = () => {
     }
     return Math.max(...columnCards.map((card) => card.priority)) + 1;
   };
-
-  const [addingColumn, setAddingColumn] = useState(false);
-  const [columnTitle, setColumnTitle] = useState("");
 
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -177,25 +142,12 @@ const Board = () => {
             />
           ))}
           {addingColumn && (
-            <>
-              <FlexContainer
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                width="300px"
-                height="300px"
-                padding="20px"
-                backgroundColor="#fff">
-                <TransparentInput
-                  ref={inputRef}
-                  type="text"
-                  placeholder="Enter column title"
-                  value={columnTitle}
-                  onKeyDown={handleInputKeyDown}
-                  onChange={(e) => setColumnTitle(e.target.value)}
-                />
-              </FlexContainer>
-            </>
+            <NewColumnInput
+              inputRef={inputRef}
+              value={columnTitle}
+              onKeyDown={handleInputKeyDown}
+              onChange={(e) => setColumnTitle(e.target.value)}
+            />
           )}
           {!addingColumn && (
             <PurpleButton onClick={() => setAddingColumn(true)}>
